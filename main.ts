@@ -42,7 +42,7 @@ namespace cbcn {
             for (let ci = 0; ci < cl; ci++) {
                 ct = "" + ct + input.charAt(cix + (ci + 1))
             }
-            cix += cl; cn = parseInt(ct);
+            cix += cl + 1; cn = parseInt(ct);
             output = "" + output + String.fromCharCode(cn)
             if ("0".includes(input.charAt(cix))) { break }
         }
