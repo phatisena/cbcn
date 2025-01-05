@@ -24,7 +24,7 @@ namespace cbcn {
       }
       
     //%block="$name"
-    //%blockId=cbcn_indexKeyShadow
+    //%blockId=cbcn_indexkeyshadow
     //%blockHidden=true shim=TD_ID
     //%name.fieldEditor="autocomplete" name.fieldOptions.decompileLiterals=true
     //%name.fieldOptions.key="cbcnIndexKey"
@@ -93,18 +93,27 @@ namespace cbcn {
         return output
     }
 
-    //%blockid=cbcn_startidx
+    //%blockid=cbcn_startidxkey
     //%block="start decode to $name by $start"
-    //%name.shadow=cbcn_indexKeyShadow
-    //%group="cbcn index key"
-    //%weight=5
+    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
+    //%group="index key"
+    //%weight=10
     export function startIndex(name: string,start: number) {
         cidk[name] = start; console.logValue(name,cidk[name]);
     }
 
+    //%blockid=cbcn_getindexkey
+    //%block="get $name from index key"
+    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
+    //%group="index key"
+    //%weight=5
+    export function getIndexKey(name:string) {
+        return cidk[name]
+    }
+
     //%blockid=cbcn_decode
     //%block="Decode $input with idx key $name"
-    //%name.shadow=cbcn_indexKeyShadow
+    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
     //%group="classic cbcn"
     //%weight=5
     export function decode(input: string,name: string) {
