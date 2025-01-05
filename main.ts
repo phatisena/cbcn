@@ -118,7 +118,7 @@ namespace cbcn {
     //%weight=5
     export function decode(input: string,name: string) {
         if (!(checkNumTxt(input))) return "";
-        if (!(cidk[name])) return "";
+        if (cidk[name] == null) return "";
         let output = "", ct = ""; let cl = 0, cn = 0,cix = cidk[name];
         while (cix < input.length) {
             cl = parseInt(input.charAt(cix)); ct = "";
