@@ -79,6 +79,24 @@ namespace cbcn {
         return true
     }
 
+    //%blockid=cbcn_startidxkey
+    //%block="start index from $name by $start"
+    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
+    //%group="index key"
+    //%weight=10
+    export function startIndex(name: string, start: number) {
+        cidk[name] = start; console.logValue(name, cidk[name]);
+    }
+
+    //%blockid=cbcn_getindexkey
+    //%block="get $name from index key"
+    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
+    //%group="index key"
+    //%weight=5
+    export function getIndexKey(name: string) {
+        return cidk[name]
+    }
+
     //%blockid=cbcn_encode
     //%block="Encode $input to cbcn"
     //%group="classic cbcn"
@@ -91,24 +109,6 @@ namespace cbcn {
         }
         output = "" + output + "0"; console.log(output);
         return output
-    }
-
-    //%blockid=cbcn_startidxkey
-    //%block="start decode to $name by $start"
-    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
-    //%group="index key"
-    //%weight=10
-    export function startIndex(name: string,start: number) {
-        cidk[name] = start; console.logValue(name,cidk[name]);
-    }
-
-    //%blockid=cbcn_getindexkey
-    //%block="get $name from index key"
-    //%name.shadow="cbcn_indexkeyshadow" name.defl="myIdxKey"
-    //%group="index key"
-    //%weight=5
-    export function getIndexKey(name:string) {
-        return cidk[name]
     }
 
     //%blockid=cbcn_decode
