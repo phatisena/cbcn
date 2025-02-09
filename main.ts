@@ -1,5 +1,5 @@
 
-//%block="CharNumber"
+//%block="Character number"
 //%color="#e8436f"
 //%icon="\uf187"
 namespace cbcn {
